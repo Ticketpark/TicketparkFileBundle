@@ -1,3 +1,0 @@
-ticketpark_file_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: TicketparkFileBundle:Default:index }
