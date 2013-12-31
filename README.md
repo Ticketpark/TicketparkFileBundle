@@ -16,7 +16,7 @@ This Symfony2 bundle ads functionalities to handle files.
 
 ## Installation
 
-Add FOSUserBundle in your composer.json:
+Add TicketparkFileBundle in your composer.json:
 
 ```js
 {
