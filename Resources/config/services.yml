@@ -1,7 +1,7 @@
 parameters:
-    ticketpark.file.handler.class:          Ticketpark\FileBundle\FileHandler\FileHandler
-    ticketpark.file.encoder.class:          Ticketpark\FileBundle\FileEncoder\FileEncoder
-    ticketpark.file.twig_extension.class:   Ticketpark\FileBundle\Twig\FileExtension
+    ticketpark.file.handler.class: Ticketpark\FileBundle\FileHandler\FileHandler
+    ticketpark.file.encoder.class: Ticketpark\FileBundle\FileEncoder\FileEncoder
+    ticketpark.file.twig_encoder_extension.class: Ticketpark\FileBundle\Twig\FileEncoderExtension
 
 services:
     ticketpark.file.handler:
@@ -12,8 +12,8 @@ services:
         class: %ticketpark.file.encoder.class%
         arguments: [@ticketpark.file.handler]
 
-    ticketpark.file.twig_extension:
-        class: %ticketpark.file.twig_extension.class%
+    ticketpark.file.twig_encoder_extension:
+        class: %ticketpark.file.twig_encoder_extension.class%
         arguments: [@ticketpark.file.encoder]
         tags:
             - { name: twig.extension }

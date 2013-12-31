@@ -2,13 +2,13 @@
 
 namespace Ticketpark\FileBundle\Tests\Twig;
 
-use Ticketpark\FileBundle\Twig\FileExtension;
+use Ticketpark\FileBundle\Twig\FileEncoderExtension;
 
-class FileExtensionTest extends \PHPUnit_Framework_TestCase
+class FileEncoderExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->fileExtension = new FileExtension($this->getFileEncoderMock());
+        $this->fileExtension = new FileEncoderExtension($this->getFileEncoderMock());
     }
 
     public function testConvertFileToBase64()

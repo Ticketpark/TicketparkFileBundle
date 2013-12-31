@@ -4,7 +4,7 @@ namespace Ticketpark\FileBundle\Twig;
 
 use Ticketpark\FileBundle\FileEncoder\FileEncoderInterface;
 
-class FileExtension extends \Twig_Extension
+class FileEncoderExtension extends \Twig_Extension
 {
     public function __construct(FileEncoderInterface $fileEncoder)
     {
@@ -31,6 +31,6 @@ class FileExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'ticketpark_file_extension';
+        return 'ticketpark_file_encoder_extension';
     }
 }
