@@ -18,6 +18,11 @@ class FileHandler implements FileHandlerInterface
     {
         $this->buzz       = $buzz;
         $this->cacheDir   = $cacheDir;
+
+        //make sure there is a trailing slash
+        if (substr($this->cacheDir, -1) !== DIRECTORY_SEPARATOR) {
+            $this->cacheDir .= DIRECTORY_SEPARATOR;
+        }
     }
 
     /**

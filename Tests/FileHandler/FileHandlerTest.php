@@ -27,6 +27,15 @@ class FileHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($result, $file);
     }
 
+    public function testGetWithFileCacheDirNoTrailingSlash()
+    {
+        $this->getInstance(substr($this->standardCacheDir, 0, -1), false);
+
+        $file = $this->standardCacheDir.'../testfile.txt';
+        $result = $this->fileHandler->get($file);
+        $this->assertEquals($result, $file);
+    }
+
     public function testGetWithUrl()
     {
         $this->getInstance($this->standardCacheDir, true);
