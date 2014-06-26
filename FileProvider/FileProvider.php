@@ -22,10 +22,26 @@ class FileProvider
      */
     public function get($fileIdentifier)
     {
-        if (isset($this->files[$fileIdentifier])) {
-            return $this->dir.$this->files[$fileIdentifier];
+        if (!isset($this->files[$fileIdentifier])) {
+            throw new \BadMethodCallException(sprintf('File "%s" is not defined', $fileIdentifier));
         }
 
-        throw new \BadMethodCallException(sprintf('File "%s" is not defined', $fileIdentifier));
+        $file = $this->files[$fileIdentifier];
+        $dir  = $this->dir;
+
+        // Handle trailing/starting directory separators to minimize setup errors
+        if (isset($this->files[$fileIdentifier])) {
+            if (substr($this->dir, -1) !== DIRECTORY_SEPARATOR) {
+                if ($this->files[$fileIdentifier][0] !== DIRECTORY_SEPARATOR) {
+                    $dir .= DIRECTORY_SEPARATOR;
+                }
+            } else {
+                if ($this->files[$fileIdentifier][0] == DIRECTORY_SEPARATOR) {
+                    $file = substr($file, 1);
+                }
+            }
+
+            return $dir.$file;
+        }
     }
 }
