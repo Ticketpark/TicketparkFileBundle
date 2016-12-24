@@ -13,7 +13,7 @@ interface FileHandlerInterface
     public function get($pathOrUrl);
 
     /**
-     * Downloads an external file and cache it locally
+     * Downloads an external file and caches it locally
      *
      * @param  string $url
      * @return File
